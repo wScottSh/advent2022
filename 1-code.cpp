@@ -28,9 +28,20 @@ int main()  // the main function that is executed by c++
             total += stoi(line);        // convert the line into an int and add it to total
         }
     }
-    totals.push_back(total); // add the total for the final elf
-    int max_total = *max_element(totals.begin(), totals.end()); // define the range and find the max
-    cout << "Elf " << current_elf << " carried the most calories with " << max_total << "." << endl;    // print the output
 
+    // Print all the things
+    auto first_highest = max_element(totals.begin(), totals.end());
+    cout << "The first highest has " << *first_highest << " calories." << endl;
+    totals.erase(first_highest);    // Use the iterator to erase the element from the vector
+
+    // Find the second highest element in the updated vector
+    auto second_highest = max_element(totals.begin(), totals.end());
+    cout << "The second highest has " << *second_highest << " calories." << endl;
+    totals.erase(second_highest);   // Use the iterator to erase the second highest element from the vector
+
+    // Find the third highest element in the updated vector
+    auto third_highest = max_element(totals.begin(), totals.end());
+    cout << "The third highest has " << *third_highest << " calories." << endl;
+    
     return 0;   // indicate the program ran successfully
 }
