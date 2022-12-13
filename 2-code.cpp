@@ -37,27 +37,15 @@ int main()
     std::string line;
     while (getline(rounds, line))
     {
-        // Import file
-        std::ifstream rounds("2-data.txt");
-        std::string line;
-        
-        // iterate through the file, but translate each line into the number
-        while (getline(rounds, line))
+        // Use the find method to look up the value for the current line
+        auto outcome = rounds.find(line);
+        if (outcome != rounds.end())
         {
-            // // Use the find method to look up the value for the current line
-            // auto it = values.find(line);
-            // if (it != values.end())
-            // {
-            //     // If the line is found in the map, add each iteration to a variable 'score'
-            //     totalScore += it->second;
-            // }
+            // If the line is found in the map, add each iteration to a variable 'score'
+            totalScore += outcome->scoreSheet;
         }
     }
-    
+
     // print out the final 'score'
     std::cout << "test score: " << totalScore << std::endl;
 }
-
-
-
-
